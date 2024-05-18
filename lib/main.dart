@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-// import 'package:location/location.dart';
+import 'package:lalezar/home.dart';
+import 'package:lalezar/map.dart';
+import 'package:lalezar/profile.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -15,32 +16,53 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'laleZar',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 150, 80, 80)),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const BottomNavigation(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class BottomNavigation extends StatefulWidget {
+  const BottomNavigation({super.key});
+
+  @override
+  State<BottomNavigation> createState() => _BottomNavigationState();
+}
+
+class _BottomNavigationState extends State<BottomNavigation> {
+  int myIndex = 1;
+  List<Widget> widgetlist = [
+    const ProfileScreen(),
+    const HomeScreen(),
+    const MapScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FlutterMap(
-        options: const MapOptions(
-          initialCenter: LatLng(36.33704, 59.58296),
-          initialZoom: 13,
-        ),
-        children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          ),
-          
-        ]
-      ),
-     );
+      appBar: AppBar(title: const Text('LaleZar Delivery App'),),
+      body: Center(child: widgetlist[myIndex]),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index){
+          setState(() {
+          });
+          myIndex = index;
+        },
+        iconSize: 28,
+        
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: myIndex,
+        items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.person),
+        label: 'Profile'),
+        BottomNavigationBarItem(icon: Icon(Icons.home),
+        label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.location_pin),
+        label: 'Map'),
+      ])
+    );
   }
 }
