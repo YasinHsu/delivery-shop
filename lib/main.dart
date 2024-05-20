@@ -42,7 +42,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('LaleZar Delivery App'),),
+      appBar: AppBar(title:  const Text('LaleZar Delivery App'),),
       body: Center(child: widgetlist[myIndex]),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index){
