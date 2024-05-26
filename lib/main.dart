@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lalezar/home.dart';
-import 'package:lalezar/map.dart';
-import 'package:lalezar/profile.dart';
-
+import 'package:lalezar/screen/home.dart';
+import 'package:lalezar/screen/map.dart';
+import 'package:lalezar/screen/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +50,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
           myIndex = index;
         },
         iconSize: 28,
-        
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: myIndex,
