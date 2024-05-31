@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'laleZar',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 150, 80, 80)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 100, 20, 20)),
         useMaterial3: true,
       ),
       home: const BottomNavigation(),

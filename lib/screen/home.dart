@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:get/get.dart';
+// import 'package:lalezar/controller/homeco.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,11 +12,17 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
           child: ListView(children: <Widget>[
         Container(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(10.0),
           child: Image.asset(
-            'assets/img/logo.jpg',
-            height: 100.0,
+            'assets/img/header.jpg',
+            height: 80.0,
           ),
+        ),
+        const Row(
+          children: [
+            Text('لاله زار'),
+            Icon(Icons.sort,),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.all(16),
