@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lalezar/screen/home.dart';
 import 'package:lalezar/screen/map.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'laleZar',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 100, 20, 20)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 130, 30, 30)),
         useMaterial3: true,
       ),
       home: const BottomNavigation(),
@@ -35,19 +37,65 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int myIndex = 1;
   List<Widget> widgetlist = [
     const ProfileScreen(),
-    const HomeScreen(),
+    HomeScreen(),
     const MapScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:  const Text('LaleZar Delivery App'),),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.grey[200],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 64, 16, 16),
+            child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  color: Colors.grey[300],
+                  margin: const EdgeInsets.only(bottom: 20),
+                ),
+                Container(
+                  height: 100,
+                  color: Colors.grey[400],
+                  margin: const EdgeInsets.only(bottom: 20),
+                ),
+                Container(
+                  height: 100,
+                  color: Colors.grey[500],
+                  margin: const EdgeInsets.only(bottom: 20),
+                ),
+                Container(
+                  height: 100,
+                  color: Colors.grey[600],
+                  margin: const EdgeInsets.only(bottom: 20),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('Delivery App'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              CupertinoIcons.shopping_cart,
+            ),
+          ),
+          const SizedBox(
+            width: 4,
+          ),
+        ],
+      ),
       body: Center(child: widgetlist[myIndex]),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index){
-          setState(() {
-          });
+        onTap: (index) {
+          setState(() {});
           myIndex = index;
         },
         iconSize: 28,
@@ -55,13 +103,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
         showUnselectedLabels: false,
         currentIndex: myIndex,
         items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.person),
-        label: 'Profile'),
-        BottomNavigationBarItem(icon: Icon(Icons.home),
-        label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.location_pin),
-        label: 'Map'),
-      ])
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.location_pin), label: 'Map'),
+        ],
+      ),
     );
   }
 }

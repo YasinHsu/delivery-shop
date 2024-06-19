@@ -7,10 +7,6 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Container(
-          color: Colors.pinkAccent,
-          width: 200,
-        ),
         body: Container(
           color: Colors.white54,
           child: Column(

@@ -19,6 +19,7 @@ dependencies:
   google_polyline_algorithm: ^3.1.0
   carousel_slider: ^4.2.1
   get: ^4.6.6
+  http: ^1.2.1
   # dio: ^5.4.3+1
 
 dev_dependencies:
