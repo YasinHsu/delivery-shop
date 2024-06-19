@@ -16,39 +16,24 @@ class HomeScreen extends StatelessWidget {
           children: [
             _header(),
             _category(),
-            _footer(),
-            _main(),
+            _main(),            
           ],
         ),
       ),
     );
   }
 
-  Container _header() {
-    return Container(
-      padding: const EdgeInsets.all(1.0),
-      child: Image.asset(
-        'assets/img/header.jpg',
-        height: 80.0,
-      ),
-    );
-  }
+  // Container _footer() {
+  //   return Container(
+  //     padding: const EdgeInsets.all(1.0),
+  //     child: Image.asset(
+  //       'assets/img/header.jpg',
+  //       height: 80.0,
+  //     ),
+  //   );
+  // }
 
-  Container _category() {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.black12, borderRadius: BorderRadius.circular(16)),
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text('flowers'),
-          Icon(CupertinoIcons.sort_down),
-        ],
-      ),
-    );
-  }
-
-  Padding _footer() {
+  Padding _header() {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: SizedBox(
@@ -69,6 +54,29 @@ class HomeScreen extends StatelessWidget {
               },
             );
           }).toList(),
+        ),
+      ),
+    );
+  }
+  
+  Container _category() {
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+        child: Container(
+          height: 32,
+          decoration: BoxDecoration(
+              color: Colors.black12, borderRadius: BorderRadius.circular(16)),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text('flowers'),
+              SizedBox(width: 4,),
+              Icon(CupertinoIcons.sort_down),
+              SizedBox(width: 8,),
+            ],
+          ),
         ),
       ),
     );
