@@ -1,6 +1,6 @@
 # lalezar
 
-A new Flutter project.
+A flower delivery Flutter project.
 
 ## Getting Started
 
